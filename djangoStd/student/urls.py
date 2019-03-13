@@ -14,4 +14,7 @@ urlpatterns = [
 
     path('std/list/', views.student_list, name="std_list"),
     path('<pk>/std/detail/', views.student_detail, name="std_detail"),
+    path('std/new/', views.student_new, name='std_new'),
+    path('<pk>/std/delete/', views.student_del, name="std_del"),
+    path('<pk>/std/update/', views.student_update, name="std_update"),
 ]
