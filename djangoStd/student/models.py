@@ -11,10 +11,10 @@ class Major(models.Model):
         return self.major_title
 
     def get_absolute_url(self):
-        return reverse('student:All_list')
+        return reverse('student:mj_list')
     
 class Student(models.Model):
-    studentID = models.IntegerField(primary_key=True,verbose_name='학생ID')
+    studentID = models.IntegerField(primary_key=True, verbose_name='학생ID')
     name = models.CharField(max_length=20, verbose_name='이름')
     major = models.ForeignKey(Major, verbose_name='전공ID', on_delete=models.CASCADE)
     phone = models.CharField(max_length=20, verbose_name='전화번호', blank=True,null=True)
@@ -25,4 +25,6 @@ class Student(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('student:std_list')
     
