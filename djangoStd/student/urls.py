@@ -8,6 +8,6 @@ urlpatterns = [
     path('list/', views.major_list, name='All_list'),
     path('<pk>/detail/', views.major_detail, name='detail'),
     path('new/', views.major_new, name='insert'),
-    # path('delete/', views.majorlist, name='del'),
+    path('<pk>/delete/', views.major_del, name='del'),
     # path('update/', views.majorlist, name='update'),
 ]
