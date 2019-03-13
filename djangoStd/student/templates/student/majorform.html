@@ -2,7 +2,10 @@
 
 <form method='post'>
 {% csrf_token %}
-Major ID : <input type='text' name='id'/><br>
-Major Title : <input type='text' name='title'/><br>
+{% comment %} 
+Major ID : <input type='text' name='major_id'/><br>
+Major Title : <input type='text' name='major_title'/><br> 
+{% endcomment %}
+{{form.as_p}}
 <input type='submit' value='저장'/>
 </form>

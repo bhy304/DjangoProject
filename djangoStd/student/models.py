@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 # Create your models here.
 
@@ -9,6 +10,9 @@ class Major(models.Model):
     def __str__(self):
         return self.major_title
 
+    def get_absolute_url(self):
+        return reverse('student:All_list')
+    
 class Student(models.Model):
     studentID = models.IntegerField(primary_key=True,verbose_name='학생ID')
     name = models.CharField(max_length=20, verbose_name='이름')
@@ -20,3 +24,5 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
+
+    
