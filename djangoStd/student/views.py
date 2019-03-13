@@ -10,3 +10,4 @@ def get_redirect(request):
 
 major_list = ListView.as_view(model=Major, template_name='student/majorlist.html')
 major_detail = DetailView.as_view(model=Major, template_name='student/majordetail.html')
+major_new = CreateView.as_view(model=Major, template_name='student/majorform.html', fields='__all__')
