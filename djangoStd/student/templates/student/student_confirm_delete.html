@@ -1,0 +1,7 @@
+<h1>Delete Student</h1>
+
+<form method='post'>
+    {% csrf_token %}
+    <button type="button" onclick="location.href='{% url 'student:std_list' %}'">아니오</button>
+    <input type="submit" value="예,삭제하겠습니다."/>
+</form>
