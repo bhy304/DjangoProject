@@ -12,6 +12,8 @@
 <tr>
 <td><a href="{% url 'student:detail' major.major_id %}">{{major.major_id}}</a></td>
 <td>{{major.major_title}}</td>
+<td><button onclick=""></button>수정</td>
+<td><button onclick="location.href='{% url 'student:del' major.major_id %}'">삭제</button></td>
 </tr>
 {% endfor %}
 </table>
