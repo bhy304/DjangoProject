@@ -13,3 +13,5 @@ major_detail = DetailView.as_view(model=Major, template_name='student/majordetai
 major_new = CreateView.as_view(model=Major, template_name='student/majorform.html', fields='__all__')
 major_update = UpdateView.as_view(model=Major, template_name='student/majorform.html', fields='__all__')
 major_del = DeleteView.as_view(model=Major, template_name='student/major_confirm_delete.html', success_url='/student/')
+
+student_list = ListView.as_view(model=Student, template_name='student/studentlist.html')
