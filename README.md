@@ -6,7 +6,7 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ### Posting
 [190313](https://github.com/bhy304/DjangoProject/edit/master/190313.md)
-
+[190313_2](https://bhy304.github.io/DjangoProject/190313.md)
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
