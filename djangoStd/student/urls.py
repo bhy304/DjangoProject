@@ -5,11 +5,13 @@ app_name = 'student'
 
 urlpatterns = [
     path('', views.get_redirect),
-    path('list/', views.major_list, name='All_list'),
-    path('<pk>/detail/', views.major_detail, name='detail'),
-    path('new/', views.major_new, name='insert'),
-    path('<pk>/delete/', views.major_del, name='del'),
-    path('<pk>/update/', views.major_update, name='update'),
 
-    path('stdlist/', views.student_list, name="student_list"),
+    path('major/list/', views.major_list, name='mj_list'),
+    path('<pk>/major/detail/', views.major_detail, name='mj_detail'),
+    path('major/new/', views.major_new, name='mj_new'),
+    path('<pk>/major/delete/', views.major_del, name='mj_del'),
+    path('<pk>/major/update/', views.major_update, name='mj_update'),
+
+    path('std/list/', views.student_list, name="std_list"),
+    path('<pk>/std/detail/', views.student_detail, name="std_detail"),
 ]

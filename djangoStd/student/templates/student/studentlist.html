@@ -1,5 +1,7 @@
 <h1>Student List</h1>
 <hr>
+<button onclick="">입력</button>
+<hr>
 
 <table border='1'>
 <tr>
@@ -10,16 +12,20 @@
 <td>주소</td>
 <td>취미</td>
 <td>기술</td>
+<td>수정</td>
+<td>삭제</td>
 </tr>
 {% for std in student_list %}
 <tr>
-<td>{{std.studentID}}</td>
+<td><a href="{% url 'student:std_detail' std.studentID %}">{{std.studentID}}</a></td>
 <td>{{std.name}}</td>
 <td>{{std.major}}</td>
 <td>{{std.phone}}</td>
 <td>{{std.address}}</td>
 <td>{{std.hobby}}</td>
 <td>{{std.skill}}</td>
+<td><button onclick="location.href=''">수정</button></td>
+<td><button onclick="location.href=''">삭제</button></td>
 </tr>
 {% endfor %}
 </table>
