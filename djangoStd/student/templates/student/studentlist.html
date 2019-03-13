@@ -1,0 +1,25 @@
+<h1>Student List</h1>
+<hr>
+
+<table border='1'>
+<tr>
+<td>학생번호</td>
+<td>이름</td>
+<td>전공</td>
+<td>전화번호</td>
+<td>주소</td>
+<td>취미</td>
+<td>기술</td>
+</tr>
+{% for std in student_list %}
+<tr>
+<td>{{std.studentID}}</td>
+<td>{{std.name}}</td>
+<td>{{std.major}}</td>
+<td>{{std.phone}}</td>
+<td>{{std.address}}</td>
+<td>{{std.hobby}}</td>
+<td>{{std.skill}}</td>
+</tr>
+{% endfor %}
+</table>
