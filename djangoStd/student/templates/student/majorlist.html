@@ -1,4 +1,8 @@
 <h1>Major List</h1>
+<hr>
+
+<button onclick="location.href='{% url 'student:insert' %}'">입력</button>
+<br>
 
 <table border='1'>
 <tr>
@@ -6,7 +10,7 @@
 </tr>
 {% for major in major_list %}
 <tr>
-<td>{{major.major_id}}</td>
+<td><a href="{% url 'student:detail' major.major_id %}">{{major.major_id}}</a></td>
 <td>{{major.major_title}}</td>
 </tr>
 {% endfor %}
