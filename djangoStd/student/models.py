@@ -1,19 +1,21 @@
 from django.db import models
 from django.shortcuts import reverse
 
-# Create your models here.
+#  __str__() 메소드를 추가하는것은 객체의 표현을 대화식 프롬프트에서 편하게 보려는 이유 말고도, 
+#  Django 가 자동으로 생성하는 관리 사이트 에서도 객체의 표현이 사용되기 때문
 
 class Major(models.Model):
     major_id = models.IntegerField(primary_key=True, verbose_name='전공ID')
     major_title = models.CharField(max_length=100, verbose_name='전공명')
 
-    #  __str__() 메소드를 추가하는것은 객체의 표현을 대화식 프롬프트에서 편하게 보려는 이유 말고도, 
-    #  Django 가 자동으로 생성하는 관리 사이트 에서도 객체의 표현이 사용되기 때문
     def __str__(self):
         return self.major_title
 
     def get_absolute_url(self):
         return reverse('student:mj_list')
+
+    class Meta:
+        ordering = ['major_id']
     
 class Student(models.Model):
     studentID = models.IntegerField(primary_key=True, verbose_name='학생ID')
@@ -30,3 +32,5 @@ class Student(models.Model):
     def get_absolute_url(self):
         return reverse('student:std_list')
     
+    class Meta:
+        ordering = ['studentID']
