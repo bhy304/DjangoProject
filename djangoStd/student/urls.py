@@ -4,7 +4,7 @@ from . import views
 app_name = 'student'
 
 urlpatterns = [
-    path('', views.get_redirect),
+    path('', views.index, name='index'),
 
     path('major/list/', views.major_list, name='mj_list'),
     path('<pk>/major/detail/', views.major_detail, name='mj_detail'),
