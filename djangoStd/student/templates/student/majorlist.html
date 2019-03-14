@@ -1,19 +1,47 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(function(){
+    $('#btn').click(function(){
+        //alert('ajax code');
+       $.ajax({
+           url : '/student/searchMajor/',
+           dataType : 'html',
+           type : 'POST',
+           data : {'major_id': $('#search').val()},
+           success : function(result){
+               alert(result)
+               //$('#here').text(result['msg'])
+               $('#here').html(result)
+           } 
+       })
+    });
+});
+</script>
+
 <h1>Major List</h1>
 <hr>
 
 <button onclick="location.href='{% url 'student:mj_new' %}'">입력</button>
 <hr>
 
+<input type='text' id='search'/>
+<button id='btn'>검색</button>
+
+<hr>
+
+<div id='here'>
 <table border='1'>
 <tr>
-<td>전공번호</td><td>전공명</td><td>수정</td><td>삭제</td>
+    <td>전공번호</td><td>전공명</td><td>수정</td><td>삭제</td>
 </tr>
 {% for major in major_list %}
+
 <tr>
-<td><a href="{% url 'student:mj_detail' major.major_id %}">{{major.major_id}}</a></td>
-<td>{{major.major_title}}</td>
-<td><button onclick="location.href='{% url 'student:mj_update' major.major_id %}'">수정</button></td>
-<td><button onclick="location.href='{% url 'student:mj_del' major.major_id %}'">삭제</button></td>
+    <td><a href="{% url 'student:mj_detail' major.major_id %}">{{major.major_id}}</a></td>
+    <td>{{major.major_title}}</td>
+    <td><button onclick="location.href='{% url 'student:mj_update' major.major_id %}'">수정</button></td>
+    <td><button onclick="location.href='{% url 'student:mj_del' major.major_id %}'">삭제</button></td>
 </tr>
 {% endfor %}
 </table>
+</div>
