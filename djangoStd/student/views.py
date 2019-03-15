@@ -38,8 +38,10 @@ def searchMajor(request):
 #Student_Ajax : name 으로 검색
 @csrf_exempt
 def searchStudent(request):
-    data = request.POST['name']
-    search = Student.objects.filter(name__contains = data)
+    '''data = request.POST['name']
+    search = Student.objects.filter(name__contains = data)'''
+    data = request.POST['major']
+    search = Student.objects.filter(major__major_title__contains = data)
     print(search)
 
     return render(request, 'student/studentlist2.html', {'student_list':search})

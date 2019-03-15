@@ -6,7 +6,7 @@ $(function(){
            url : '/student/searchStudent/',
            dataType : 'html',
            type : 'POST',
-           data : {'name': $('#search').val()},
+           data : {'major': $('#search').val()},
            success : function(result){
                alert(result)
                $('#here').html(result)
