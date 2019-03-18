@@ -1,6 +1,6 @@
 from django.db import models
 from django.shortcuts import reverse
-
+from django import forms
 #  __str__() 메소드를 추가하는것은 객체의 표현을 대화식 프롬프트에서 편하게 보려는 이유 말고도, 
 #  Django 가 자동으로 생성하는 관리 사이트 에서도 객체의 표현이 사용되기 때문
 
@@ -34,3 +34,7 @@ class Student(models.Model):
     
     class Meta:
         ordering = ['studentID']
+
+# class UploadFileModel(models.Model):
+#     title = models.TextField(default='')
+#     upload = models.FileField(null=True)

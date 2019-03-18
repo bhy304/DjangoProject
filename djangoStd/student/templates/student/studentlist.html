@@ -16,14 +16,25 @@ $(function(){
 });
 </script>
 
+<a href="{% url 'student:index' %}">Main</a>
+
 <h1>Student List</h1>
-<hr>
+
 <button onclick="location.href='{% url 'student:std_new' %}'">입력</button>
 <hr>
 
 <input type='text' id='search'/>
 <button id='btn'>검색</button>
+<hr>
 
+<form method="POST" enctype="multipart/form-data">
+    <input type="radio" name="file" value="major"/>Major
+    <input type="radio" name="file" value="student" checked/>Student
+    <br>
+    <input type="file" name="upload">
+    <input type="submit" value="Save">
+</form>
+<button onclick="location.href='{% url 'student:deleteStudent' %}'">DB삭제</button>
 <hr>
 
 <div id='here'>
