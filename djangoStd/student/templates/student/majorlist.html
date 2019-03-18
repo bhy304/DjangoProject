@@ -18,17 +18,25 @@ $(function(){
 });
 </script>
 
+<a href="{% url 'student:index' %}">Main</a>
+
 <h1>Major List</h1>
-<hr>
 
 <button onclick="location.href='{% url 'student:mj_new' %}'">입력</button>
-<button onclick="location.href='{% url 'student:deleteMajor' %}'">DB delete</button>
-<button onclick="location.href='{% url 'student:insertMajor' %}'">DB insert</button>
 <hr>
 
 <input type='text' id='search'/>
 <button id='btn'>검색</button>
-
+<hr>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="radio" name="data_type" value="major" checked/>Major
+    <input type="radio" name="data_type" value="student"/>Student
+    <br>
+    <input type="file" name="upload"/>
+    <button type="submit">Upload</button>
+</form>
+<button onclick="location.href='{% url 'student:deleteMajor' %}'">DB삭제</button>
 <hr>
 
 <div id='here'>
