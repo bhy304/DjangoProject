@@ -20,9 +20,9 @@ urlpatterns = [
     # Ajax_검색
     path('searchMajor/', views.searchMajor),
     path('searchStudent/', views.searchStudent),
-    # DB 삭제 및 삽입
+    # DB 삽입
+    path('insertdb/', views.insertData, name='insertdb'),
+    # DB 삭제
     path('deleteMajor/', views.deleteMajor, name='deleteMajor'),
-    path('insertMajor/', views.insertMajor, name='insertMajor'),
     path('deleteStudent/', views.deleteStudent, name='deleteStudent'),
-    path('insertStudent/', views.insertStudent, name='insertStudent'),
 ]
