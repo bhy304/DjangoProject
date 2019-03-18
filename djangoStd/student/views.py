@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Major, Student
 from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
+import pymysql 
+import pandas as pd
 
 # Major, Student를 이용한 CRUD TEST
 
@@ -45,3 +47,70 @@ def searchStudent(request):
     print(search)
 
     return render(request, 'student/studentlist2.html', {'student_list':search})
+
+# Major_DB 삭제
+def deleteMajor(request):
+    # DB 연결
+    db = pymysql.connect(host="localhost",user="root",password="1234",db="student",charset="utf8")
+    
+    # 커서 생성
+    cursor = db.cursor()
+    
+    # SQL문 실행
+    sql = "delete from student_major"
+    cursor.execute(sql)
+    
+    db.commit()
+    db.close()
+    print("DONE")
+    return render(request, 'student/majorlist.html')
+
+# Major_DB 삽입
+def insertMajor(request):
+    # DB 연결
+    db = pymysql.connect(host="localhost",user="root",password="1234",db="student",charset="utf8")
+    print(db)
+    # 커서 생성
+    cursor = db.cursor()
+    
+    # csv 읽어오기
+    csv_data = pd.read_csv('csv/major.csv')
+    sql = "INSERT INTO student_major(major_id, major_title) values(%s, %s)"
+    print(sql)
+    for row in csv_data.get_values():
+        cursor.execute(sql, tuple(row))
+        print("row",row)
+    db.commit()
+    db.close()
+    return render(request, 'student/majorlist.html')
+
+# Student_DB 삭제
+def deleteStudent(request):
+    db = pymysql.connect(host="localhost",user="root",password="1234",db="student",charset="utf8")
+    cursor = db.cursor()
+    sql = "delete from student_student"
+    cursor.execute(sql)   
+    db.commit()
+    db.close()
+    print("DONE")
+    return render(request, 'student/studentlist.html')
+
+# Student_DB 삽입
+def insertStudent(request):
+    # DB 연결
+    db = pymysql.connect(host="localhost",user="root",password="1234",db="student",charset="utf8")
+    # 커서 생성
+    cursor = db.cursor()
+    # csv 읽어오기
+    csv_data = pd.read_csv('csv/student.csv')
+    csv_data = csv_data.fillna("")
+    #csv_data
+    sql = """INSERT INTO student_student(studentID, name, major_id, phone, address, hobby, skill) 
+             values(%s, %s, %s, %s, %s, %s, %s)"""
+
+    for row in csv_data.get_values():
+        cursor.execute(sql, tuple(row))
+        print(row)
+    db.commit()
+    db.close()
+    return render(request, 'student/studentlist.html')

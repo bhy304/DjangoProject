@@ -19,6 +19,8 @@ $(function(){
 <h1>Student List</h1>
 <hr>
 <button onclick="location.href='{% url 'student:std_new' %}'">입력</button>
+<button onclick="location.href='{% url 'student:deleteStudent' %}'">DB delete</button>
+<button onclick="location.href='{% url 'student:insertStudent' %}'">DB insert</button>
 <hr>
 
 <input type='text' id='search'/>
