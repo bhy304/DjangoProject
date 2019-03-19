@@ -21,8 +21,9 @@ urlpatterns = [
     path('searchMajor/', views.searchMajor),
     path('searchStudent/', views.searchStudent),
     # DB 삽입
-    path('insertdb/', views.insertData, name='insertdb'),
+    path('insertmajor/', views.insertMajor, name='db_major'),
+    path('insertstudent/', views.insertStudent, name='db_student'),
     # DB 삭제
-    path('deleteMajor/', views.deleteMajor, name='deleteMajor'),
-    path('deleteStudent/', views.deleteStudent, name='deleteStudent'),
+    path('deleteMajor/', views.deleteMajor, name='db_del_major'),
+    path('deleteStudent/', views.deleteStudent, name='db_del_student'),
 ]

@@ -28,15 +28,17 @@ $(function(){
 <input type='text' id='search'/>
 <button id='btn'>검색</button>
 <hr>
-<form method="POST" enctype="multipart/form-data">
+
+{% comment %} <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <input type="radio" name="data_type" value="major" checked/>Major
-    <input type="radio" name="data_type" value="student"/>Student
-    <br>
+    <input type="radio" name="data_type" value="major"/>Major<p>
+    <input type="radio" name="data_type" value="student"/>Student<p>
     <input type="file" name="upload"/>
-    <button type="submit">Upload</button>
-</form>
-<button onclick="location.href='{% url 'student:deleteMajor' %}'">DB삭제</button>
+    <input type="submit" value="Save"/>
+</form> {% endcomment %}
+
+<button onclick="location.href='{% url 'student:db_major' %}'">DB 삽입</button>
+<button onclick="location.href='{% url 'student:db_del_major' %}'">DB삭제</button>
 <hr>
 
 <div id='here'>
